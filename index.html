@@ -3,17 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kyuto Projects Updates</title>
+    <title>2027 Anniversary Countdown</title>
     <style>
         body {
             font-family: system-ui, -apple-system, sans-serif;
             background-color: #0f172a;
             color: #ffffff;
             display: flex;
-            justify-content: center;
-            align-items: center;
+            flex-direction: column; /* Stacks the card and content vertically */
+            align-items: center; /* Keeps everything centered horizontally */
             min-height: 100vh;
             margin: 0;
+            padding-top: 20vh; /* Positions the top of the box 2/5 down the screen */
+            box-sizing: border-box;
         }
         .countdown-card {
             text-align: center;
@@ -30,18 +32,41 @@
         .time-box { background-color: #334155; padding: 1rem; border-radius: 0.5rem; min-width: 70px; flex: 1; }
         .number { font-size: 2.25rem; font-weight: bold; display: block; color: #38bdf8; }
         .label { font-size: 0.75rem; text-transform: uppercase; color: #94a3b8; letter-spacing: 0.05em; }
+
+        /* New section styling for your text below the card */
+        .content-section {
+            margin-top: 2.5rem;
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+            color: #cbd5e1;
+            line-height: 1.6;
+            padding-bottom: 3rem;
+        }
+        .content-section h2 {
+            color: #f8fafc;
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
     </style>
 </head>
 <body>
 
     <div class="countdown-card">
-        <h1>Tokino Sora 2027 Anniversary Countdown</h1>
+        <h1>Anniversary Countdown</h1>
+        <div class="timezone-label">Targeting Sept 7, 2027 (00:00 JST)</div>
         <div class="timer-grid">
             <div class="time-box"><span id="days" class="number">00</span><span class="label">Days</span></div>
             <div class="time-box"><span id="hours" class="number">00</span><span class="label">Hours</span></div>
             <div class="time-box"><span id="minutes" class="number">00</span><span class="label">Minutes</span></div>
             <div class="time-box"><span id="seconds" class="number">00</span><span class="label">Seconds</span></div>
         </div>
+    </div>
+
+    <!-- Add your custom writing and descriptions here -->
+    <div class="content-section">
+        <h2>About This Project</h2>
+        <p>Write your project details, messages, or descriptions here. As you add more text, it will naturally flow down the screen and allow visitors to scroll down smoothly.</p>
     </div>
 
     <script>
