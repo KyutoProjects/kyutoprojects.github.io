@@ -105,10 +105,10 @@
             <h1>Tokino Sora Birthday 2027</h1>
             <div class="timezone-label">Targeting Aug 1, 2027 (00:00 JST)</div>
             <div class="timer-grid">
-                <div class="time-box"><span id="t2-days" class="number">00</span><span class="label">Days</span></div>
-                <div class="time-box"><span id="t2-hours" class="number">00</span><span class="label">Hours</span></div>
-                <div class="time-box"><span id="t2-minutes" class="number">00</span><span class="label">Minutes</span></div>
-                <div class="time-box"><span id="t2-seconds" class="number">00</span><span class="label">Seconds</span></div>
+                <div class="time-box"><span id="t1-days" class="number">00</span><span class="label">Days</span></div>
+                <div class="time-box"><span id="t1-hours" class="number">00</span><span class="label">Hours</span></div>
+                <div class="time-box"><span id="t1-minutes" class="number">00</span><span class="label">Minutes</span></div>
+                <div class="time-box"><span id="t11-seconds" class="number">00</span><span class="label">Seconds</span></div>
             </div>
         </div>
         
@@ -117,10 +117,10 @@
             <h1>Tokino Sora 2027 Anniversary</h1>
             <div class="timezone-label">Targeting Sept 7, 2027 (00:00 JST)</div>
             <div class="timer-grid">
-                <div class="time-box"><span id="t1-days" class="number">00</span><span class="label">Days</span></div>
-                <div class="time-box"><span id="t1-hours" class="number">00</span><span class="label">Hours</span></div>
-                <div class="time-box"><span id="t1-minutes" class="number">00</span><span class="label">Minutes</span></div>
-                <div class="time-box"><span id="t1-seconds" class="number">00</span><span class="label">Seconds</span></div>
+                <div class="time-box"><span id="t2-days" class="number">00</span><span class="label">Days</span></div>
+                <div class="time-box"><span id="t2-hours" class="number">00</span><span class="label">Hours</span></div>
+                <div class="time-box"><span id="t2-minutes" class="number">00</span><span class="label">Minutes</span></div>
+                <div class="time-box"><span id="t2-seconds" class="number">00</span><span class="label">Seconds</span></div>
             </div>
         </div>
     </div>
@@ -135,8 +135,9 @@
 
     <script>
         // Set target dates here (using JST +09:00 offset)
-        const targetDate1 = new Date("2027-09-07T00:00:00+09:00").getTime();
-        const targetDate2 = new Date("2027-08-01T00:00:00+09:00").getTime(); // Adjust to your second event date
+        const targetDate1 = new Date("2027-05-15T00:00:00+09:00").getTime(); // Adjust to your second event date
+        const targetDate2 = new Date("2027-09-07T00:00:00+09:00").getTime();
+
 
         function updateSingleTimer(targetTime, prefix) {
             const now = new Date().getTime();
