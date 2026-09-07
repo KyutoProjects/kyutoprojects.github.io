@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Event Countdown</title>
+    <title>2027 Anniversary Countdown</title>
     <style>
         body {
             font-family: system-ui, -apple-system, sans-serif;
@@ -15,95 +15,55 @@
             min-height: 100vh;
             margin: 0;
         }
-
         .countdown-card {
             text-align: center;
             background-color: #1e293b;
             padding: 2.5rem;
             border-radius: 1rem;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            width: 90%;
         }
-
-        .timer-grid {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
-            justify-content: center;
-        }
-
-        .time-box {
-            background-color: #334155;
-            padding: 1rem;
-            border-radius: 0.5rem;
-            min-width: 70px;
-        }
-
-        .number {
-            font-size: 2.25rem;
-            font-weight: bold;
-            display: block;
-            color: #38bdf8;
-        }
-
-        .label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            color: #94a3b8;
-            letter-spacing: 0.05em;
-        }
+        h1 { margin-top: 0; font-size: 1.75rem; color: #f8fafc; }
+        .timezone-label { font-size: 0.85rem; color: #38bdf8; margin-bottom: 1.5rem; font-weight: 500; }
+        .timer-grid { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .time-box { background-color: #334155; padding: 1rem; border-radius: 0.5rem; min-width: 70px; flex: 1; }
+        .number { font-size: 2.25rem; font-weight: bold; display: block; color: #38bdf8; }
+        .label { font-size: 0.75rem; text-transform: uppercase; color: #94a3b8; letter-spacing: 0.05em; }
     </style>
 </head>
 <body>
 
     <div class="countdown-card">
         <h1>Anniversary Countdown</h1>
+        <div class="timezone-label">Targeting Sept 7, 2027 (00:00 JST)</div>
         <div class="timer-grid">
-            <div class="time-box">
-                <span id="days" class="number">00</span>
-                <span class="label">Days</span>
-            </div>
-            <div class="time-box">
-                <span id="hours" class="number">00</span>
-                <span class="label">Hours</span>
-            </div>
-            <div class="time-box">
-                <span id="minutes" class="number">00</span>
-                <span class="label">Minutes</span>
-            </div>
-            <div class="time-box">
-                <span id="seconds" class="number">00</span>
-                <span class="label">Seconds</span>
-            </div>
+            <div class="time-box"><span id="days" class="number">00</span><span class="label">Days</span></div>
+            <div class="time-box"><span id="hours" class="number">00</span><span class="label">Hours</span></div>
+            <div class="time-box"><span id="minutes" class="number">00</span><span class="label">Minutes</span></div>
+            <div class="time-box"><span id="seconds" class="number">00</span><span class="label">Seconds</span></div>
         </div>
     </div>
 
     <script>
-        // Set your target date here (YYYY-MM-DDTHH:MM:SS)
-        const targetDate = new Date("2027-09-01T00:00:00").getTime();
+        // Locked to September 7, 2027, 00:00:00 JST (UTC+9)
+        const targetDate = new Date("2027-09-07T00:00:00+09:00").getTime();
 
         function updateCountdown() {
             const now = new Date().getTime();
             const timeDifference = targetDate - now;
 
             if (timeDifference <= 0) {
-                document.querySelector('.countdown-card').innerHTML = "<h1>The Event Has Arrived!</h1>";
+                document.querySelector('.countdown-card').innerHTML = "<h1>Happy Anniversary!</h1>";
                 return;
             }
 
-            // Calculations for days, hours, minutes, and seconds
-            const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
-
-            // Output formatted with leading zeros
-            document.getElementById("days").textContent = String(days).padStart(2, '0');
-            document.getElementById("hours").textContent = String(hours).padStart(2, '0');
-            document.getElementById("minutes").textContent = String(minutes).padStart(2, '0');
-            document.getElementById("seconds").textContent = String(seconds).padStart(2, '0');
+            document.getElementById("days").textContent = String(Math.floor(timeDifference / (1000 * 60 * 60 * 24))).padStart(2, '0');
+            document.getElementById("hours").textContent = String(Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+            document.getElementById("minutes").textContent = String(Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+            document.getElementById("seconds").textContent = String(Math.floor((timeDifference % (1000 * 60)) / 1000)).padStart(2, '0');
         }
 
-        // Run immediately and update every 1 second
         updateCountdown();
         setInterval(updateCountdown, 1000);
     </script>
