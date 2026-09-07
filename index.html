@@ -3,39 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2027 Anniversary Countdown</title>
+    <title>2027 Anniversary Countdowns</title>
     <style>
         body {
             font-family: system-ui, -apple-system, sans-serif;
             background-color: #0f172a;
             color: #ffffff;
             display: flex;
-            flex-direction: column; /* Stacks the card and content vertically */
-            align-items: center; /* Keeps everything centered horizontally */
+            flex-direction: column;
+            align-items: center;
             min-height: 100vh;
             margin: 0;
-            padding-top: 20vh; /* Positions the top of the box 2/5 down the screen */
+            padding-top: 15vh;
             box-sizing: border-box;
         }
+
+        /* Flex wrapper to place cards side-by-side */
+        .cards-wrapper {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            align-items: stretch;
+            flex-wrap: wrap; /* Stacks vertically on mobile screens automatically */
+            width: 90%;
+            max-width: 950px;
+        }
+
         .countdown-card {
-            text-align: center;
+            flex: 1;
+            min-width: 280px; /* Ensures cards don't shrink too small on narrow screens */
             background-color: #1e293b;
-            padding: 2.5rem;
+            padding: 2rem;
             border-radius: 1rem;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-            max-width: 500px;
-            width: 90%;
+            text-align: center;
         }
-        h1 { margin-top: 0; font-size: 1.75rem; color: #f8fafc; }
-        .timezone-label { font-size: 0.85rem; color: #38bdf8; margin-bottom: 1.5rem; font-weight: 500; }
-        .timer-grid { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-        .time-box { background-color: #334155; padding: 1rem; border-radius: 0.5rem; min-width: 70px; flex: 1; }
-        .number { font-size: 2.25rem; font-weight: bold; display: block; color: #38bdf8; }
-        .label { font-size: 0.75rem; text-transform: uppercase; color: #94a3b8; letter-spacing: 0.05em; }
 
-        /* New section styling for your text below the card */
+        h1 { 
+            margin-top: 0; 
+            font-size: 1.5rem; 
+            color: #f8fafc; 
+        }
+
+        .timezone-label { 
+            font-size: 0.8rem; 
+            color: #38bdf8; 
+            margin-bottom: 1.25rem; 
+            font-weight: 500; 
+        }
+
+        .timer-grid { 
+            display: flex; 
+            gap: 0.5rem; 
+            justify-content: center; 
+        }
+
+        .time-box { 
+            background-color: #334155; 
+            padding: 0.75rem 0.5rem; 
+            border-radius: 0.5rem; 
+            flex: 1; 
+        }
+
+        .number { 
+            font-size: 1.75rem; 
+            font-weight: bold; 
+            display: block; 
+            color: #38bdf8; 
+        }
+
+        .label { 
+            font-size: 0.65rem; 
+            text-transform: uppercase; 
+            color: #94a3b8; 
+            letter-spacing: 0.05em; 
+        }
+
         .content-section {
-            margin-top: 2.5rem;
+            margin-top: 3rem;
             max-width: 600px;
             width: 90%;
             text-align: center;
@@ -43,6 +88,7 @@
             line-height: 1.6;
             padding-bottom: 3rem;
         }
+
         .content-section h2 {
             color: #f8fafc;
             font-size: 1.5rem;
@@ -52,44 +98,76 @@
 </head>
 <body>
 
-    <div class="countdown-card">
-        <h1>Anniversary Countdown</h1>
-        <div class="timezone-label">Targeting Sept 7, 2027 (00:00 JST)</div>
-        <div class="timer-grid">
-            <div class="time-box"><span id="days" class="number">00</span><span class="label">Days</span></div>
-            <div class="time-box"><span id="hours" class="number">00</span><span class="label">Hours</span></div>
-            <div class="time-box"><span id="minutes" class="number">00</span><span class="label">Minutes</span></div>
-            <div class="time-box"><span id="seconds" class="number">00</span><span class="label">Seconds</span></div>
+    <!-- Container holding both countdown cards -->
+    <div class="cards-wrapper">
+        
+        <!-- Timer 1 -->
+        <div class="countdown-card">
+            <h1>Anniversary Day</h1>
+            <div class="timezone-label">Targeting Sept 7, 2027 (00:00 JST)</div>
+            <div class="timer-grid">
+                <div class="time-box"><span id="t1-days" class="number">00</span><span class="label">Days</span></div>
+                <div class="time-box"><span id="t1-hours" class="number">00</span><span class="label">Hours</span></div>
+                <div class="time-box"><span id="t1-minutes" class="number">00</span><span class="label">Minutes</span></div>
+                <div class="time-box"><span id="t1-seconds" class="number">00</span><span class="label">Seconds</span></div>
+            </div>
         </div>
+
+        <!-- Timer 2 -->
+        <div class="countdown-card">
+            <h1>Pre-Event Project</h1>
+            <div class="timezone-label">Targeting Aug 1, 2027 (00:00 JST)</div>
+            <div class="timer-grid">
+                <div class="time-box"><span id="t2-days" class="number">00</span><span class="label">Days</span></div>
+                <div class="time-box"><span id="t2-hours" class="number">00</span><span class="label">Hours</span></div>
+                <div class="time-box"><span id="t2-minutes" class="number">00</span><span class="label">Minutes</span></div>
+                <div class="time-box"><span id="t2-seconds" class="number">00</span><span class="label">Seconds</span></div>
+            </div>
+        </div>
+
     </div>
 
-    <!-- Add your custom writing and descriptions here -->
+    <!-- Content section below both timers -->
     <div class="content-section">
         <h2>About This Project</h2>
         <p>Write your project details, messages, or descriptions here. As you add more text, it will naturally flow down the screen and allow visitors to scroll down smoothly.</p>
     </div>
 
     <script>
-        // Locked to September 7, 2027, 00:00:00 JST (UTC+9)
-        const targetDate = new Date("2027-09-07T00:00:00+09:00").getTime();
+        // Set target dates here (using JST +09:00 offset)
+        const targetDate1 = new Date("2027-09-07T00:00:00+09:00").getTime();
+        const targetDate2 = new Date("2027-08-01T00:00:00+09:00").getTime(); // Adjust to your second event date
 
-        function updateCountdown() {
+        function updateSingleTimer(targetTime, prefix) {
             const now = new Date().getTime();
-            const timeDifference = targetDate - now;
+            const timeDifference = targetTime - now;
 
             if (timeDifference <= 0) {
-                document.querySelector('.countdown-card').innerHTML = "<h1>Happy Anniversary!</h1>";
+                document.getElementById(prefix + "days").textContent = "00";
+                document.getElementById(prefix + "hours").textContent = "00";
+                document.getElementById(prefix + "minutes").textContent = "00";
+                document.getElementById(prefix + "seconds").textContent = "00";
                 return;
             }
 
-            document.getElementById("days").textContent = String(Math.floor(timeDifference / (1000 * 60 * 60 * 24))).padStart(2, '0');
-            document.getElementById("hours").textContent = String(Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
-            document.getElementById("minutes").textContent = String(Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
-            document.getElementById("seconds").textContent = String(Math.floor((timeDifference % (1000 * 60)) / 1000)).padStart(2, '0');
+            const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+            document.getElementById(prefix + "days").textContent = String(days).padStart(2, '0');
+            document.getElementById(prefix + "hours").textContent = String(hours).padStart(2, '0');
+            document.getElementById(prefix + "minutes").textContent = String(minutes).padStart(2, '0');
+            document.getElementById(prefix + "seconds").textContent = String(seconds).padStart(2, '0');
         }
 
-        updateCountdown();
-        setInterval(updateCountdown, 1000);
+        function updateAllCountdowns() {
+            updateSingleTimer(targetDate1, "t1-");
+            updateSingleTimer(targetDate2, "t2-");
+        }
+
+        updateAllCountdowns();
+        setInterval(updateAllCountdowns, 1000);
     </script>
 
 </body>
