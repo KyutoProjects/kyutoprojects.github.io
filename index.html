@@ -4,16 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kyuto Projects Updates</title>
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- AOS Animation CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    
     <style>
         body {
             font-family: system-ui, -apple-system, sans-serif;
-            background-color: #0f172a;
+            background-color: #0f1114;
             color: #ffffff;
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
             min-height: 100vh;
             margin: 0;
+            padding: 1.5rem;
             padding-top: 15vh;
             box-sizing: border-box;
         }
@@ -37,12 +46,6 @@
             border-radius: 1rem;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
             text-align: center;
-        }
-
-        h1 { 
-            margin-top: 0; 
-            font-size: 1.5rem; 
-            color: #f8fafc; 
         }
 
         .timezone-label { 
@@ -94,6 +97,35 @@
             font-size: 1.5rem;
             margin-bottom: 0.75rem;
         }
+        
+
+        .primary-text-gradient {
+          /* Replace hex values with your preferred brand colors */
+          background: linear-gradient(135deg, #e11d48 0%, #9333ea 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
+        
+        h1 {
+      font-size: 30px;
+      line-height: 125%;
+      font-weight: bold;
+      display: inline-block;
+      margin-bottom: 1rem;
+      
+      /* Gradient text styling */
+      background: linear-gradient(to right, #38bdf8, #818cf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Makes text bigger on desktop screens (replaces lg:text-5xl) */
+    @media (min-width: 1024px) {
+      h1 {
+        font-size: 3rem; /* 48px */
+      }
+    }
     </style>
 </head>
 <body>
@@ -102,7 +134,7 @@
     <div class="cards-wrapper">
         <!-- Timer 1 -->
             <div class="countdown-card">
-                <h1>Tokino Sora Birthday 2027</h1>
+                <h1 data-aos="fade-up" data-aos-duration="800">Tokino Sora Birthday 2027</h1>
                 <div class="timezone-label">May 15, 2027 (00:00 JST)</div>
                 <div class="timer-grid">
                     <div class="time-box"><span id="t1-days" class="number">00</span><span class="label">Days</span></div>
@@ -176,6 +208,13 @@
         updateAllCountdowns();
         setInterval(updateAllCountdowns, 1000);
     </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    // Initialize scroll animation
+    AOS.init({
+      once: true // Set to true if you want the animation to occur only once while scrolling
+    });
+  </script>
 
 </body>
 </html>
