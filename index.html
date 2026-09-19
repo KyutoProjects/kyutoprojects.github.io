@@ -10,124 +10,10 @@
     <!-- AOS Animation CSS -->
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
     
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@600&display=swap');
-        
-        body {
-            font-family: system-ui, -apple-system, sans-serif;
-            background-color: #18181b;
-            color: #ffffff;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            margin: 0;
-            padding: 1.5rem;
-            box-sizing: border-box;
-        }
-
-        .cards-wrapper {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            align-items: stretch;
-            flex-wrap: wrap; /* Stacks vertically on mobile screens automatically */
-            width: 90%;
-            max-width: 950px;
-        }
-
-        .countdown-card {
-            flex: 1;
-            min-width: 280px; /* Ensures cards don't shrink too small on narrow screens */
-            background-color: #0f1114;
-            padding: 2rem;
-            border-radius: 1rem;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-            text-align: center;
-        }
-
-        .timezone-label { 
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.8rem; 
-            font-weight: 600;
-            color: #dbdbdb;
-            margin-bottom: 1.1rem; 
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        .timer-grid { 
-            display: flex; 
-            gap: 0.5rem; 
-            justify-content: center; 
-        }
-
-        .time-box { 
-            background-color: #18181b; 
-            padding: 0.75rem 0.5rem; 
-            border-radius: 0.5rem; 
-            flex: 1; 
-        }
-
-        .number { 
-            font-size: 1.75rem; 
-            font-weight: bold; 
-            display: block; 
-            color: #ffffff; 
-        }
-
-        .label { 
-            font-size: 0.65rem; 
-            text-transform: uppercase; 
-            color: #606060; 
-            letter-spacing: 0.05em; 
-        }
-        
-        .countdown-card h2 {
-            font-size: 1.35rem;
-            line-height: 1.3;
-            font-weight: bold;
-            margin-bottom: 0.75rem;
-            background: linear-gradient(to right, #38bdf8, #818cf8);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0px 0px 4px rgba(56, 189, 248, 0.35));
-            /*text-shadow: 2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff,
-             1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;*/
-        }
-        
-        
-        .plan-section {
-            margin-top: 5rem;
-            max-width: 600px;
-            width: 90%;
-            text-align: center;
-            color: #cbd5e1;
-            line-height: 1.6;
-            padding-bottom: 3rem;
-        }
-
-        .plan-section h2 {            
-            color: #f8fafc;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 1.5rem;
-            margin-bottom: 0.75rem;
-        }
-
-        /* Desktop Sizing */
-        @media (min-width: 1024px) {
-          .countdown-card h2 {
-            font-size: 1.65rem;
-          }
-        }
-    </style>
+    <!-- Linked Custom CSS File -->
+    <link rel="stylesheet" href="/assets/css/global.css">
 </head>
 <body>
-    
-    <!-- Container holding countdown cards -->
     <div class="cards-wrapper">
         <!-- Timer 1 -->
             <div class="countdown-card">
@@ -153,7 +39,7 @@
             </div>
     </div>
 
-    <!-- Plan section below the timers -->
+    <!-- Project plans section below the timers -->
     <div class="plan-section">
         <h2><u>IDEA-<span style="color: #ffe045;">PLANNED PROJECTS</span></u></h2>
         <ul style="list-style: none; padding: 0; margin: 0 auto; width: fit-content; text-align: left;">
@@ -173,44 +59,12 @@
         </ul>
     </div>
 
-
-    <!-- Script Executed Last -->
-    <script>
-        // Set target dates here (using JST +09:00 offset)
-        const targetDate1 = new Date("2027-05-15T00:00:00+09:00").getTime();
-        const targetDate2 = new Date("2027-09-07T00:00:00+09:00").getTime(); 
-        function updateSingleTimer(targetTime, prefix) {
-            const now = new Date().getTime();
-            const timeDifference = targetTime - now;
-            if (timeDifference <= 0) {
-                document.getElementById(prefix + "days").textContent = "00";
-                document.getElementById(prefix + "hours").textContent = "00";
-                document.getElementById(prefix + "minutes").textContent = "00";
-                document.getElementById(prefix + "seconds").textContent = "00";
-                return;
-            }
-            const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
-            document.getElementById(prefix + "days").textContent = String(days).padStart(2, '0');
-            document.getElementById(prefix + "hours").textContent = String(hours).padStart(2, '0');
-            document.getElementById(prefix + "minutes").textContent = String(minutes).padStart(2, '0');
-            document.getElementById(prefix + "seconds").textContent = String(seconds).padStart(2, '0');
-        }
-        function updateAllCountdowns() {
-            updateSingleTimer(targetDate1, "t1-");
-            updateSingleTimer(targetDate2, "t2-");
-        }
-        updateAllCountdowns();
-        setInterval(updateAllCountdowns, 1000);
-    </script>
+    <script src="/assets/js/timer-countdown.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({
             once: true 
         });
     </script>
-
 </body>
 </html>
