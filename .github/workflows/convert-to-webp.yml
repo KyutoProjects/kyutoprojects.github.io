@@ -1,0 +1,34 @@
+name: Auto Convert Images to WebP
+
+on:
+  push:
+    paths:
+      - 'raw-art/**' # Triggers only when you add or update images in the raw-art folder
+
+jobs:
+  convert:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Install WebP Tool
+        run: sudo apt-get install -y webp
+
+      - name: Convert PNG/JPG to WebP
+        run: |
+          mkdir -p img
+          for file in raw-art/*.{png,jpg,jpeg}; do
+            if [ -f "$file" ]; then
+              filename=$(basename "$file" | cut -f 1 -d '.')
+              cwebp -q 80 "$file" -o "img/$filename.webp"
+            fi
+          done
+
+      - name: Commit Converted WebP Images
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add img/
+          git commit -m "Auto-generated WebP display images" || exit 0
+          git push
