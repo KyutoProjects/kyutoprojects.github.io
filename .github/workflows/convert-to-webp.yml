@@ -3,7 +3,7 @@ name: Auto Convert Images to WebP
 on:
   push:
     paths:
-      - 'raw-art/**' # Triggers only when you add or update images in the raw-art folder
+      - '**/download/**' # Listens for changes in any 'download' subfolder anywhere in your repo
 
 jobs:
   convert:
@@ -17,18 +17,23 @@ jobs:
 
       - name: Convert PNG/JPG to WebP
         run: |
-          mkdir -p img
-          for file in raw-art/*.{png,jpg,jpeg}; do
-            if [ -f "$file" ]; then
-              filename=$(basename "$file" | cut -f 1 -d '.')
-              cwebp -q 80 "$file" -o "img/$filename.webp"
-            fi
+          # Find all png/jpg files inside any folder named 'download'
+          find . -type f \( -name "*.png" -o -name "*.jpg" -o -name "*.jpeg" \) -path "*/download/*" | while read -r file; do
+            download_dir=$(dirname "$file")
+            project_dir=$(dirname "$download_dir")
+            filename=$(basename "$file" | cut -f 1 -d '.')
+            
+            # Ensure destination img folder exists
+            mkdir -p "$project_dir/img"
+            
+            # Convert image to webp inside that specific img/ folder
+            cwebp -q 80 "$file" -o "$project_dir/img/$filename.webp"
           done
 
       - name: Commit Converted WebP Images
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add img/
-          git commit -m "Auto-generated WebP display images" || exit 0
+          git add .
+          git commit -m "Auto-generated WebP display images in subfolders" || exit 0
           git push
