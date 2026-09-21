@@ -118,7 +118,7 @@ body {
     writing-mode: vertical-rl; 
     font-size: 8rem;
     font-weight: 900;
-    /* line-height: 0.8; */
+    line-height: 0.8;
     letter-spacing: 0.05em;
     text-transform: uppercase;
     white-space: nowrap;
