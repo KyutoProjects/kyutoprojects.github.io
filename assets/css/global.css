@@ -108,7 +108,7 @@ body {
 .brand-watermark {
     /* Positioning */
     position: fixed;
-    right: -0.1em;
+    /*right: -0.1em;*/
     top: 50%;
     transform: translateY(-50%);
     z-index: 1;
@@ -116,9 +116,9 @@ body {
     /* Typography & Flow */
     font-family: 'Arial Black', -apple-system, sans-serif; 
     writing-mode: vertical-rl; 
-    font-size: 7.5rem;
+    font-size: 8rem;
     font-weight: 900;
-    line-height: 0.8;
+    /* line-height: 0.8; */
     letter-spacing: 0.05em;
     text-transform: uppercase;
     white-space: nowrap;
