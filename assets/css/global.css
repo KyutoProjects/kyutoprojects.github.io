@@ -108,7 +108,7 @@ body {
 .brand-watermark {
     /* Positioning */
     position: fixed;
-    right: 0.1em;
+    right: 0em;
     top: 50%;
     transform: translateY(-50%);
     z-index: 1;
