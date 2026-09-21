@@ -25,6 +25,7 @@ body {
     flex-wrap: wrap; /* Stacks vertically on mobile screens automatically */
     width: 90%;
     max-width: 950px;
+    z-index: 10;
 }
 
 .countdown-card {
@@ -42,7 +43,7 @@ body {
     font-size: 0.8rem; 
     font-weight: 600;
     color: #dbdbdb;
-    margin-bottom: 1.1rem; 
+    margin-bottom: 1.1rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     -webkit-font-smoothing: antialiased;
@@ -110,7 +111,7 @@ body {
     right: 0;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 100;
+    z-index: 1;
     
     /* Typography & Flow */
     font-family: 'Arial Black', -apple-system, sans-serif; 
