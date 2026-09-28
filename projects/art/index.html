@@ -1,1 +1,109 @@
-place holder
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Gallery</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #0b0d12;
+      font-family: system-ui, -apple-system, sans-serif;
+      color: #ffffff;
+    }
+
+    /* Minimal margin grid */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2px; /* Creates the near-zero margin effect between images */
+      padding: 2px;
+    }
+
+    .gallery-item {
+      position: relative;
+      aspect-ratio: 4 / 3; /* Keeps all images uniformly sized */
+      overflow: hidden;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    /* Subtle zoom without darkening the image */
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Bottom-right text alignment */
+    .hover-content {
+      position: absolute;
+      bottom: 15px;
+      right: 15px;
+      text-align: right;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      /* Heavy text shadow ensures readability without dimming the background */
+      text-shadow: 0px 2px 8px rgba(0, 0, 0, 0.9), 0px 0px 4px rgba(0, 0, 0, 0.6);
+      pointer-events: none; /* Prevents text from interfering with mouse hovering */
+    }
+
+    .gallery-item:hover .hover-content {
+      opacity: 1;
+    }
+
+    .hover-date {
+      font-size: 0.85rem;
+      color: #e4e4e7;
+      margin-bottom: 2px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+    }
+
+    .hover-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="gallery-grid">
+    
+    <!-- Gallery Item 1 -->
+    <div class="gallery-item">
+      <img src="https://via.placeholder.com/600x400" alt="Gallery Image 1" loading="lazy">
+      <div class="hover-content">
+        <div class="hover-date">October 12, 2026</div>
+        <h3 class="hover-title">Mountain Summit</h3>
+      </div>
+    </div>
+
+    <!-- Gallery Item 2 -->
+    <div class="gallery-item">
+      <img src="https://via.placeholder.com/600x400" alt="Gallery Image 2" loading="lazy">
+      <div class="hover-content">
+        <div class="hover-date">September 28, 2026</div>
+        <h3 class="hover-title">City Lights</h3>
+      </div>
+    </div>
+
+    <!-- Gallery Item 3 -->
+    <div class="gallery-item">
+      <img src="https://via.placeholder.com/600x400" alt="Gallery Image 3" loading="lazy">
+      <div class="hover-content">
+        <div class="hover-date">August 05, 2026</div>
+        <h3 class="hover-title">Ocean View</h3>
+      </div>
+    </div>
+
+    <!-- Add more items by copying the block above -->
+
+  </div>
+
+</body>
+</html>
