@@ -81,24 +81,31 @@
       height: 100vh;
       max-width: none;
       max-height: none;
-      padding: 3rem;
+      padding: 0;
       border: 0;
       background: #000000;
       color: #ffffff;
+      
+      opacity: 1;
+      transform: scale(1);
+      transition: opacity 250ms ease, transform 250ms ease; display 250ms allow-discrete;
     }
 
     .image-viewer[open] {
       display: grid;
       place-items: center;
+      opacity: 1;
+      transform: scale(1);
     }
 
     .image-viewer::backdrop {
       background: #000000;
+      transition: background-color 250ms ease;
     }
 
     .image-viewer img {
-      width: 100%;
-      height: 100%;
+      max-width: 100%;
+      max-height: 100%;
       object-fit: contain;
     }
 
@@ -116,6 +123,24 @@
       font-size: 2rem;
       line-height: 1;
       cursor: pointer;
+    }
+
+    @starting-style {
+      .image-viewer[open] {
+        opacity: 0;
+        transform: scale(0.98);
+      }
+
+      .image-viewer[open]::backdrop {
+        background-color: transparent;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .image-viewer,
+      .image-viewer::backdrop {
+        transition: none;
+      }
     }
 
     @media (max-width: 600px) {
