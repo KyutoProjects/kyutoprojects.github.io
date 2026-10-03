@@ -14,28 +14,32 @@
       font-family: system-ui, -apple-system, sans-serif;
     }
 
-    /* Minimal margin grid */
+    body:has(dialog[open]) {
+      overflow: hidden;
+    }
+
     .gallery-grid {
       display: grid;
       gap: 3.5px;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      padding: 5px;
+      padding: 5.5px;
       max-width: 1200px;
-      margin: 24px auto;
+      width: calc(100% - 40px);
+      margin: 20px auto;
       background: rgba(255,255,255,0.02);
       border: 2px solid rgba(255,255,255,0.08);
-      border-radius: 18px;
+      border-radius: 12px;
       box-shadow: 0 20px 50px rgba(0,0,0,0.35);
     }
 
     .gallery-item {
       position: relative;
-      aspect-ratio: 1 / 1; /* Keeps all images square */
+      aspect-ratio: 1 / 1;
       overflow: hidden;
       border-radius: 7px;
       overflow: hidden;
       border-radius: 12px;
-      border: 2px solid rgba(255,255,255,0.08);
+      border: 3px solid rgba(255,255,255,0.08);
       box-shadow: 0 10px 20px rgba(0,0,0,0.25);
     }
 
@@ -48,12 +52,10 @@
       border-radius: 7px;
     }
 
-    /* Subtle zoom without darkening the image */
     .gallery-item:hover img {
       transform: scale(1.05);
     }
 
-    /* Bottom-right text alignment */
     .hover-content {
       position: absolute;
       bottom: 15px;
@@ -61,9 +63,8 @@
       text-align: right;
       opacity: 0;
       transition: opacity 0.4s ease;
-      /* Heavy text shadow ensures readability without dimming the background */
       text-shadow: 0px 2px 8px rgba(0, 0, 0, 0.9), 0px 0px 4px rgba(0, 0, 0, 0.6);
-      pointer-events: none; /* Prevents text from interfering with mouse hovering */
+      pointer-events: none;
     }
 
     .gallery-item:hover .hover-content {
@@ -90,16 +91,16 @@
     }
 
     .image-viewer {
+      overflow: hidden;
       box-sizing: border-box;
-      width: 100vw;
-      height: 100vh;
+      width: 100%;
+      height: 100%;
       max-width: none;
       max-height: none;
-      padding: 0;
+      padding: 2rem;
       border: 0;
       background: #000000;
-      color: #ffffff;
-      
+      color: #ffffff;      
       opacity: 1;
       transform: scale(1);
       transition: opacity 250ms ease, transform 250ms ease; display: 250ms allow-discrete;
@@ -118,8 +119,10 @@
     }
 
     .image-viewer img {
-      max-width: 100%;
-      max-height: 100%;
+      max-width: calc(100% - 4rem);
+      max-height: calc(100% - 4rem);
+      min-width: 0;
+      min-height: 0;
       object-fit: contain;
     }
 
@@ -137,6 +140,7 @@
       font-size: 2rem;
       line-height: 1;
       cursor: pointer;
+      z-index: 10
     }
 
     @starting-style {
