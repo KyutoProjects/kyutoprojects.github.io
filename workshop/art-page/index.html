@@ -22,7 +22,7 @@
       display: grid;
       gap: 3.5px;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      padding: 5.5px;
+      padding: 7px;
       max-width: 1200px;
       width: calc(100% - 40px);
       margin: 20px auto;
@@ -50,10 +50,37 @@
       transition: transform 0.4s ease;
       cursor: pointer;
       border-radius: 7px;
+
+      filter: contrast(0.94) saturate(0.92) brightness(0.98);
+      image-rendering: auto;
+      transition: transform 0.4s ease, filter 0.4s ease;
+
+      }
+
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+      filter: contrast(1) saturate(1) brightness(1);
     }
 
     .gallery-item:hover img {
       transform: scale(1.05);
+    }
+
+    .gallery-item::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      /* Adds a subtle 10% dark tint to harmonize light & dark thumbnails */
+      background: rgba(11, 13, 18, 0.12);
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+      border-radius: 12px;
+    }
+
+    .gallery-item:hover::after {
+      /* Lift the tint on hover */
+      opacity: 0;
     }
 
     .hover-content {
@@ -182,7 +209,7 @@
       <img src="illust/dummy1_thumb.webp" data-full="illust/dummy1.webp" alt="Image 8673 x 3386" loading="lazy">
       <div class="hover-content">
         <div class="hover-date">XXXX XX, XXXX</div>
-        <h3 class="hover-title">Image 8673 x 3386</h3>
+        <h3 class="hover-title">Dummy-Image 8673 x 3386</h3>
       </div>
     </div>
 
@@ -190,7 +217,7 @@
       <img src="illust/dummy2_thumb.webp" data-full="illust/dummy2.webp" alt="Image 7700 x 4428" loading="lazy">
       <div class="hover-content">
         <div class="hover-date">XXXX XX, XXXX</div>
-        <h3 class="hover-title">Image 7700 x 4428</h3>
+        <h3 class="hover-title">Dummy-Image 7700 x 4428</h3>
       </div>
     </div>
 
@@ -198,7 +225,7 @@
       <img src="illust/dummy3_thumb.webp" data-full="illust/dummy3.webp" alt="Image 1280 x 720" loading="lazy">
       <div class="hover-content">
         <div class="hover-date">XXXX XX, XXXX</div>
-        <h3 class="hover-title">Image 1280 x 720</h3>
+        <h3 class="hover-title">Dummy-Image 1280 x 720</h3>
       </div>
     </div>
 
@@ -206,7 +233,7 @@
       <img src="illust/dummy4_thumb.webp" data-full="illust/dummy4.webp" alt="Image 1588 x 1179" loading="lazy">
       <div class="hover-content">
         <div class="hover-date">XXXX XX, XXXX</div>
-        <h3 class="hover-title">Image 1588 x 1179</h3>
+        <h3 class="hover-title">Dummy-Image 1588 x 1179</h3>
       </div>
     </div>
 
@@ -214,7 +241,7 @@
       <img src="illust/dummy5_thumb.webp" data-full="illust/dummy5.webp" alt="Image 1120 x 1129" loading="lazy">
       <div class="hover-content">
         <div class="hover-date">XXXX XX, XXXX</div>
-        <h3 class="hover-title">Image 1120 x 1129</h3>
+        <h3 class="hover-title">Dummy-Image 1120 x 1129</h3>
       </div>
     </div>
 
@@ -222,7 +249,7 @@
       <img src="illust/dummy6_thumb.webp" data-full="illust/dummy6.webp" alt="Image 750 x 1000" loading="lazy">
       <div class="hover-content">
         <div class="hover-date">XXXX XX, XXXX</div>
-        <h3 class="hover-title">Image 750 x 1000</h3>
+        <h3 class="hover-title">Dummy-Image 750 x 1000</h3>
       </div>
     </div>
 
@@ -230,7 +257,7 @@
       <img src="illust/dummy7_thumb.webp" data-full="illust/dummy7.webp" alt="Image 2726 x 3856" loading="lazy">
       <div class="hover-content">
         <div class="hover-date">XXXX XX, XXXX</div>
-        <h3 class="hover-title">Image 2726 x 3856</h3>
+        <h3 class="hover-title">Dummy-Image 2726 x 3856</h3>
       </div>
     </div>
 
@@ -238,7 +265,7 @@
       <img src="illust/dummy8_thumb.webp" data-full="illust/dummy8.webp" alt="Image 782 x 1200" loading="lazy">
       <div class="hover-content">
         <div class="hover-date">XXXX XX, XXXX</div>
-        <h3 class="hover-title">Image 782 x 1200</h3>
+        <h3 class="hover-title">Dummy-Image 782 x 1200</h3>
       </div>
     </div>
 
@@ -246,7 +273,7 @@
       <img src="illust/dummy9_thumb.webp" data-full="illust/dummy9.webp" alt="Image 1138 x 2824" loading="lazy">
       <div class="hover-content">
         <div class="hover-date">XXXX XX, XXXX</div>
-        <h3 class="hover-title">Image 1138 x 2824</h3>
+        <h3 class="hover-title">Dummy-Image 1138 x 2824</h3>
       </div>
     </div>
     
