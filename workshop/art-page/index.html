@@ -178,57 +178,75 @@
 
   <div class="gallery-grid">
     
-    <!-- Gallery Item 1 -->
     <div class="gallery-item">
-      <img src="illust/dummy1.jpg" alt="Gallery Image 1" loading="lazy">
+      <img src="illust/dummy1_thumb.webp" data-full="illust/dummy1.webp" alt="Image 8673 x 3386" loading="lazy">
       <div class="hover-content">
-        <div class="hover-date">October 12, 2026</div>
-        <h3 class="hover-title">Mountain Summit</h3>
+        <div class="hover-date">XXXX XX, XXXX</div>
+        <h3 class="hover-title">Image 8673 x 3386</h3>
       </div>
     </div>
 
-    <!-- Gallery Item 2 -->
     <div class="gallery-item">
-      <img src="illust/dummy2.jpg" alt="Gallery Image 2" loading="lazy">
+      <img src="illust/dummy2_thumb.webp" data-full="illust/dummy2.webp" alt="Image 7700 x 4428" loading="lazy">
       <div class="hover-content">
-        <div class="hover-date">September 28, 2026</div>
-        <h3 class="hover-title">City Lights</h3>
+        <div class="hover-date">XXXX XX, XXXX</div>
+        <h3 class="hover-title">Image 7700 x 4428</h3>
       </div>
     </div>
 
-    <!-- Gallery Item 3 -->
     <div class="gallery-item">
-      <img src="illust/dummy3.jpg" alt="Gallery Image 3" loading="lazy">
+      <img src="illust/dummy3_thumb.webp" data-full="illust/dummy3.webp" alt="Image 1280 x 720" loading="lazy">
       <div class="hover-content">
-        <div class="hover-date">August 05, 2026</div>
-        <h3 class="hover-title">Ocean View</h3>
+        <div class="hover-date">XXXX XX, XXXX</div>
+        <h3 class="hover-title">Image 1280 x 720</h3>
       </div>
     </div>
 
-        <!-- Gallery Item 3 -->
     <div class="gallery-item">
-      <img src="illust/dummy3.jpg" alt="Gallery Image 3" loading="lazy">
+      <img src="illust/dummy4_thumb.webp" data-full="illust/dummy4.webp" alt="Image 1588 x 1179" loading="lazy">
       <div class="hover-content">
-        <div class="hover-date">August 05, 2026</div>
-        <h3 class="hover-title">Ocean View</h3>
+        <div class="hover-date">XXXX XX, XXXX</div>
+        <h3 class="hover-title">Image 1588 x 1179</h3>
       </div>
     </div>
 
-        <!-- Gallery Item 1 -->
     <div class="gallery-item">
-      <img src="illust/dummy1.jpg" alt="Gallery Image 1" loading="lazy">
+      <img src="illust/dummy5_thumb.webp" data-full="illust/dummy5.webp" alt="Image 1120 x 1129" loading="lazy">
       <div class="hover-content">
-        <div class="hover-date">October 12, 2026</div>
-        <h3 class="hover-title">Mountain Summit</h3>
+        <div class="hover-date">XXXX XX, XXXX</div>
+        <h3 class="hover-title">Image 1120 x 1129</h3>
       </div>
     </div>
 
-        <!-- Gallery Item 2 -->
     <div class="gallery-item">
-      <img src="illust/dummy2.jpg" alt="Gallery Image 2" loading="lazy">
+      <img src="illust/dummy6_thumb.webp" data-full="illust/dummy6.webp" alt="Image 750 x 1000" loading="lazy">
       <div class="hover-content">
-        <div class="hover-date">September 28, 2026</div>
-        <h3 class="hover-title">City Lights</h3>
+        <div class="hover-date">XXXX XX, XXXX</div>
+        <h3 class="hover-title">Image 750 x 1000</h3>
+      </div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="illust/dummy7_thumb.webp" data-full="illust/dummy7.webp" alt="Image 2726 x 3856" loading="lazy">
+      <div class="hover-content">
+        <div class="hover-date">XXXX XX, XXXX</div>
+        <h3 class="hover-title">Image 2726 x 3856</h3>
+      </div>
+    </div>
+
+        <div class="gallery-item">
+      <img src="illust/dummy8_thumb.webp" data-full="illust/dummy8.webp" alt="Image 782 x 1200" loading="lazy">
+      <div class="hover-content">
+        <div class="hover-date">XXXX XX, XXXX</div>
+        <h3 class="hover-title">Image 782 x 1200</h3>
+      </div>
+    </div>
+
+        <div class="gallery-item">
+      <img src="illust/dummy9_thumb.webp" data-full="illust/dummy9.webp" alt="Image 1138 x 2824" loading="lazy">
+      <div class="hover-content">
+        <div class="hover-date">XXXX XX, XXXX</div>
+        <h3 class="hover-title">Image 1138 x 2824</h3>
       </div>
     </div>
     
@@ -247,7 +265,7 @@
     const gallery = document.querySelector('.gallery-grid');
 
     function openImageViewer(image) {
-      viewerImage.src = image.currentSrc || image.src;
+      viewerImage.src = image.getAttribute('data-full') || image.src;
       viewerImage.alt = image.alt;
       imageViewer.showModal();
     }
