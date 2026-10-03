@@ -16,7 +16,7 @@
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2px; /* Creates the near-zero margin effect between images */
+      gap: 3px; /* Creates the near-zero margin effect between images */
       padding: 2px;
     }
 
@@ -24,6 +24,7 @@
       position: relative;
       aspect-ratio: 1 / 1; /* Keeps all images square */
       overflow: hidden;
+      border-radius: 5px;
     }
 
     .gallery-item img {
@@ -32,6 +33,7 @@
       object-fit: cover;
       transition: transform 0.4s ease;
       cursor: pointer;
+      border-radius: 5px;
     }
 
     /* Subtle zoom without darkening the image */
@@ -88,7 +90,7 @@
       
       opacity: 1;
       transform: scale(1);
-      transition: opacity 250ms ease, transform 250ms ease; display 250ms allow-discrete;
+      transition: opacity 250ms ease, transform 250ms ease; display: 250ms allow-discrete;
     }
 
     .image-viewer[open] {
@@ -162,7 +164,7 @@
     
     <!-- Gallery Item 1 -->
     <div class="gallery-item">
-      <img src="illust/1.jpg" alt="Gallery Image 1" loading="lazy">
+      <img src="illust/dummy1.jpg" alt="Gallery Image 1" loading="lazy">
       <div class="hover-content">
         <div class="hover-date">October 12, 2026</div>
         <h3 class="hover-title">Mountain Summit</h3>
@@ -171,7 +173,7 @@
 
     <!-- Gallery Item 2 -->
     <div class="gallery-item">
-      <img src="illust/2.jpg" alt="Gallery Image 2" loading="lazy">
+      <img src="illust/dummy2.jpg" alt="Gallery Image 2" loading="lazy">
       <div class="hover-content">
         <div class="hover-date">September 28, 2026</div>
         <h3 class="hover-title">City Lights</h3>
@@ -180,13 +182,40 @@
 
     <!-- Gallery Item 3 -->
     <div class="gallery-item">
-      <img src="illust/3.jpg" alt="Gallery Image 3" loading="lazy">
+      <img src="illust/dummy3.jpg" alt="Gallery Image 3" loading="lazy">
       <div class="hover-content">
         <div class="hover-date">August 05, 2026</div>
         <h3 class="hover-title">Ocean View</h3>
       </div>
     </div>
 
+        <!-- Gallery Item 3 -->
+    <div class="gallery-item">
+      <img src="illust/dummy3.jpg" alt="Gallery Image 3" loading="lazy">
+      <div class="hover-content">
+        <div class="hover-date">August 05, 2026</div>
+        <h3 class="hover-title">Ocean View</h3>
+      </div>
+    </div>
+
+        <!-- Gallery Item 1 -->
+    <div class="gallery-item">
+      <img src="illust/dummy1.jpg" alt="Gallery Image 1" loading="lazy">
+      <div class="hover-content">
+        <div class="hover-date">October 12, 2026</div>
+        <h3 class="hover-title">Mountain Summit</h3>
+      </div>
+    </div>
+
+        <!-- Gallery Item 2 -->
+    <div class="gallery-item">
+      <img src="illust/dummy2.jpg" alt="Gallery Image 2" loading="lazy">
+      <div class="hover-content">
+        <div class="hover-date">September 28, 2026</div>
+        <h3 class="hover-title">City Lights</h3>
+      </div>
+    </div>
+    
     <!-- Add more items by copying the block above -->
 
   </div>
