@@ -149,7 +149,7 @@ body {
 @media (max-width: 768px) {
   .brand-watermark {
     position: static;
-    writing-mode: vertical-rl;
+    writing-mode: horizontal-tb;
     font-size: 3rem;
     transform: none;
     width: 100%;
