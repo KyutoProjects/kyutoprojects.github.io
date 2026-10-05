@@ -161,13 +161,10 @@ body {
     background: repeating-linear-gradient(
         -45deg,
         rgba(255, 255, 255, 0.65),
-        rgba(255, 255, 255, 0.65) 2px,
+        rgba(255, 255, 255, 0.65) 1px,
         transparent 2px,
         transparent 8px
     );
-    -webkit-background-clip: text;
-    background-clip: text;     
-    -webkit-text-fill-color: transparent;
   }
   
   /* Text overlay on top of hatched bar */
