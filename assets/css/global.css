@@ -155,8 +155,7 @@ body {
     width: 100%;
     text-align: center;
     margin-top: 3rem;
-    line-height: 0.7;
-    letter-spacing: -0.02em;
+    line-height: 1;
     
     /* Higher opacity hatched pattern */
     background: repeating-linear-gradient(
@@ -172,22 +171,5 @@ body {
   }
   
   /* Text overlay on top of hatched bar */
-  .brand-watermark::before {
-    content: 'KBPRJCTS';
-    position: absolute;
-    width: 100%;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    text-align: center;
-    color: #18181b;
-    font-family: 'Arial Black', -apple-system, sans-serif;
-    font-size: 3rem;
-    font-weight: 900;
-    letter-spacing: -0.02em;
-    text-transform: uppercase;
-    white-space: nowrap;
-    writing-mode: horizontal-tb;
-    z-index: 2;
-  }
+
 }
