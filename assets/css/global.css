@@ -145,15 +145,25 @@ body {
   }
 }
 
-/* Mobile: Move watermark to bottom to prevent scroll jank */
+/* Mobile: Move watermark to static position at bottom with full-width display */
 @media (max-width: 768px) {
   .brand-watermark {
+    position: static;
     writing-mode: horizontal-tb;
-    font-size: 2rem;
-    bottom: 1rem;
-    top: auto;
-    right: 50%;
-    transform: translateX(50%);
+    font-size: 3rem;
+    transform: none;
+    width: 100%;
+    text-align: center;
+    margin-top: 3rem;
     line-height: 1;
+    
+    /* Higher opacity for better visibility */
+    background: repeating-linear-gradient(
+        -45deg,
+        rgba(255, 255, 255, 0.65),
+        rgba(255, 255, 255, 0.65) 2px,
+        transparent 2px,
+        transparent 8px
+    );
   }
 }
