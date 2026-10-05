@@ -114,7 +114,7 @@ body {
     z-index: 1;
     
     /* Typography & Flow */
-    font-family: 'Arial Black', -apple-system, sans-serif; 
+    font-family: 'Arial Black', -apple-system, sans-serif;
     writing-mode: vertical-rl; 
     font-size: 8rem;
     font-weight: 900;
@@ -148,9 +148,10 @@ body {
 /* Mobile: Move watermark to static position at bottom with full-width display */
 @media (max-width: 768px) {
   .brand-watermark {
-    position: static;
     writing-mode: horizontal-tb;
+    position: relative;
     font-size: 3rem;
+    font-family: 'Arial Black', -apple-system, sans-serif;
     transform: none;
     width: 100%;
     text-align: center;
@@ -161,27 +162,28 @@ body {
     /* Higher opacity hatched pattern */
     background: repeating-linear-gradient(
         -45deg,
-        rgba(255, 255, 255, 0.65),
-        rgba(255, 255, 255, 0.65) 1px,
-        transparent 2px,
+        rgba(255, 255, 255, 0.35),
+        rgba(255, 255, 255, 0.35) 1px,
+        transparent 1px,
         transparent 8px
     );
   }
   
   /* Text overlay on top of hatched bar */
-  .brand-watermark::before {
+  .brand-watermark::after {
     content: 'KBPRJCTS';
     position: absolute;
     width: 100%;
     left: 0;
-    top: 50%;
-    transform: translateY(-50%);
     text-align: center;
-    color: #18181b;
+    color: #ffffff;
+    -webkit-text-fill-color: #18181b;
+    -webkit-text-stroke: 0.5px rgba(255, 255, 255, 0.35);
     font-family: 'Arial Black', -apple-system, sans-serif;
     font-size: 3rem;
     font-weight: 900;
-    letter-spacing: -0.02em;
+    line-height: 1;
+    letter-spacing: -0.04em;
     text-transform: uppercase;
     white-space: nowrap;
     writing-mode: horizontal-tb;
