@@ -144,3 +144,16 @@ body {
     font-size: 1.65rem;
   }
 }
+
+/* Mobile: Move watermark to bottom to prevent scroll jank */
+@media (max-width: 768px) {
+  .brand-watermark {
+    writing-mode: horizontal-tb;
+    font-size: 2rem;
+    bottom: 1rem;
+    top: auto;
+    right: 50%;
+    transform: translateX(50%);
+    line-height: 1;
+  }
+}
